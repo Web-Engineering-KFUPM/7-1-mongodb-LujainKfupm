@@ -108,7 +108,8 @@
  *       Example connection string: mongodb+srv://mjwdmufti:<db_password>@cluster0.wwsbvm7.mongodb.net
  *  - write your database password in place of <db_password> in the connection string.
  *  - Run server: node server.js to test connection.
- * 
+ *
+ * mongodb+srv://LujainAljehani:hM3dz3a9ahfMdy23@cluster0.yuuyr5e.mongodb.net/?appName=Cluster0
  * =====================================================
  * TODO-2 Define the schema of the DB
  * ===================================================== 
@@ -170,9 +171,20 @@
 import mongoose from "mongoose";
 
 // establish connection
+const MONGO_URI = "mongodb+srv://LujainAljehani:hM3dz3a9ahfMdy23@cluster0.yuuyr5e.mongodb.net/labDB";
+mongoose.connect(MONGO_URI)
+    .then(() => console.log("Connected"))
+    .catch(err => console.error(err));
 
 
 // define schema
+const studentSchema = new mongoose.Schema({
+    name: String,
+    age: Number,
+    major: String,
+});
+
+const Student = mongoose.model("Student", studentSchema);
 
 
 // create document
